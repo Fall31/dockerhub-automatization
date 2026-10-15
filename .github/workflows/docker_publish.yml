@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Configurar Docker build
-        uses: docker/setup-builds-action@v3
+        uses: docker/setup-build-action@v3
       
       - name: Construir y subir imagen en dockerhub
         uses: docker/build-push-action@v5
@@ -27,4 +27,4 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/mi-web-plana:latest
-            ${{ secrets.DOCKER_PASSWORD }}/mi-web-plana${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/mi-web-plana${{ github.sha }}
